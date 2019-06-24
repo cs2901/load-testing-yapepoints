@@ -15,11 +15,11 @@ public class TranslatorImplTest {
     @BeforeMethod
     public void setUp() throws Exception {
         translator = new TranslatorImpl();
-        from = new Language("EN", "English");
-        to = new Language("ES", "Spanish");
+        from = new Language("en", "English");
+        to = new Language("es", "Spanish");
     }
 
-    @Test(invocationCount = 100, threadPoolSize = 5)
+    @Test(invocationCount = 100, threadPoolSize = 10)
     public void testTranslate() throws Exception {
         String response = translator.translate(from, to, "Hello World");
         Assert.assertEquals(response, "Hola Mundo");
